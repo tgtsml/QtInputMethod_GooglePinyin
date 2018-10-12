@@ -1,0 +1,1 @@
+# QtInputMethod_GooglePinyin
