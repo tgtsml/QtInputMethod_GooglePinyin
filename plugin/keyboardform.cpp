@@ -5,7 +5,6 @@
 #include <QHBoxLayout>
 #include <QFontDatabase>
 #include <QFile>
-#include <QTimer>
 #include <QApplication>
 #include "pinyinime.h"
 
@@ -71,9 +70,6 @@ KeyboardForm::KeyboardForm(QWidget *parent)
     m_label_pinyin->setFixedHeight(keyboard_btn_height*0.4);
     hb[0]->addWidget(m_label_pinyin);
     hb[0]->addStretch(1);
-    QTimer *timer = new QTimer;
-    connect(timer, &QTimer::timeout, this, updateButtonStateOfChineseCharacters);
-    timer->start(500);
 
     //汉子缓存
     for(int i=0; i<chinesecharacters_number; i++)
@@ -197,17 +193,21 @@ KeyboardForm::KeyboardForm(QWidget *parent)
     vb_system->addWidget(widget_pinyin);
     vb_system->addWidget(widget_keyboard);
     widget_pinyin->hide();
+
+    updateButtonStateOfChineseCharacters();
 }
 
 void KeyboardForm::updateButtonStateOfChineseCharacters()
 {
     if(m_label_pinyin->text().isEmpty())
     {
+        m_label_pinyin->setHidden(true);
         change_chinese_characters_page_list.at(0)->setHidden(true);
         change_chinese_characters_page_list.at(1)->setHidden(true);
     }
     else
     {
+        m_label_pinyin->setHidden(false);
         change_chinese_characters_page_list.at(0)->setHidden(false);
         change_chinese_characters_page_list.at(1)->setHidden(false);
     }
@@ -349,6 +349,7 @@ void KeyboardForm::clearChineseCache()
     {
         chinese_characters_list.at(i)->setText("");
     }
+    updateButtonStateOfChineseCharacters();
 }
 
 void KeyboardForm::hideKeyboard()
@@ -443,6 +444,7 @@ void KeyboardForm::characterButtonClicked()
             {
                 m_label_pinyin->setText(m_label_pinyin->text().append(((QPushButton*)sender())->text()));
                 searchChineseCharacters(0);
+                updateButtonStateOfChineseCharacters();
             }
         }
     }
