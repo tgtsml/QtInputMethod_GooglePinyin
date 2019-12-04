@@ -7,12 +7,12 @@
 TgtsmlPlatformInputContext::TgtsmlPlatformInputContext()
 {
     m_focusitem = nullptr;
-    m_keyboard = new KeyboardForm;
-    connect(m_keyboard, &KeyboardForm::sendKeyToFocusItem, this, &TgtsmlPlatformInputContext::sendKeyToFocusItem);
+    m_keyboard = nullptr;
 }
 
 TgtsmlPlatformInputContext::~TgtsmlPlatformInputContext()
 {
+    disconnect(m_keyboard, &KeyboardForm::sendKeyToFocusItem, this, &TgtsmlPlatformInputContext::sendKeyToFocusItem);
     if(m_keyboard) delete m_keyboard;
 }
 
@@ -54,6 +54,10 @@ void TgtsmlPlatformInputContext::setFocusObject(QObject *object)
 
 void TgtsmlPlatformInputContext::showInputPanel()
 {
+    if(!m_keyboard){
+        m_keyboard = new KeyboardForm;
+        connect(m_keyboard, &KeyboardForm::sendKeyToFocusItem, this, &TgtsmlPlatformInputContext::sendKeyToFocusItem);
+    }
     if(m_keyboard->isHidden())m_keyboard->show();
     m_keyboard->move(m_keyboard->x(), qApp->desktop()->height() - m_keyboard->height());
 }

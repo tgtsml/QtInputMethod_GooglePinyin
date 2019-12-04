@@ -1,10 +1,7 @@
-QT          += gui-private widgets
+QT          = core gui-private widgets
 
 TEMPLATE    = lib
 TARGET      = tgtsmlInputContextPlugin
-
-LIBS        += -L$$PWD/googlepinyin/ -lgooglepinyin
-INCLUDEPATH += $$PWD/googlepinyin
 
 HEADERS     += \
             tgtsmlplatforminputcontextplugin.h \
@@ -19,3 +16,14 @@ SOURCES     += \
 RESOURCES   += \
             res.qrc
 
+INCLUDEPATH += $$PWD/googlepinyin
+
+CONFIG      += debug_and_release build_all
+
+CONFIG(debug, debug|release){
+    TARGET  = ../../window/debug/platformInputContexts/$$join(TARGET,,,d)
+    LIBS    += -L$$PWD/googlepinyin/ -lgooglepinyind
+}CONFIG(release, debug|release){
+    TARGET  = ../../window/release/platformInputContexts/$$TARGET
+    LIBS    += -L$$PWD/googlepinyin/ -lgooglepinyin
+}
