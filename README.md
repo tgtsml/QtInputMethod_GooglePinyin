@@ -17,8 +17,7 @@
 ​		Windows上运行测试结果
 ​		![](https://github.com/tgtsml/QtInputMethod_GooglePinyin/blob/master/Windows_test/res.png)
 
-## 编译说明（以release版本为例）
-​	选择release版本
+## 编译说明
 1. 先编译测试程序，再编译googlepinyin源码；
 2. 把编译好的库文件libgooglepinyin.a放到plugin/googlepinyin目录下；
 3. 再编译plugin源码，把编译后的库文件放到测试程序执行文件所在目录下的platforminputcontexts文件夹下；
