@@ -42,10 +42,18 @@ HEADERS     += \
             utf16char.h \
             utf16reader.h
 
-CONFIG      += debug_and_release build_all
-
-CONFIG(debug, debug|release){
-    TARGET  = ../../plugin/googlepinyin/$$join(TARGET,,,d)
-}CONFIG(release, debug|release){
-    TARGET  = ../../plugin/googlepinyin/$$TARGET
+win32{
+    CONFIG      += debug_and_release build_all
+    CONFIG(debug, debug|release){
+        TARGET  = ../../plugin/googlepinyin/$$join(TARGET,,,d)
+    }CONFIG(release, debug|release){
+        TARGET  = ../../plugin/googlepinyin/$$TARGET
+    }
+}
+unix{
+    TARGET      = ../plugin/googlepinyin/$$TARGET
+    MOC_DIR     = ../tmpfiles
+    RCC_DIR     = ../tmpfiles
+    UI_DIR      = ../tmpfiles
+    OBJECTS_DIR = ../tmpfiles
 }

@@ -36,8 +36,7 @@ KeyboardForm::KeyboardForm(QWidget *parent)
 
     //设置主窗体样式
     this->setAttribute(Qt::WA_TranslucentBackground);
-    this->setWindowFlags(windowFlags() | \
-                         Qt::Tool | \
+    this->setWindowFlags(Qt::Tool | \
                          Qt::FramelessWindowHint | \
                          Qt::WindowStaysOnTopHint | \
                          Qt::WindowDoesNotAcceptFocus);

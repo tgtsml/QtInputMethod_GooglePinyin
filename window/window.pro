@@ -1,8 +1,15 @@
-QT += core gui widgets
+QT      += core gui widgets
 
 HEADERS += \
-    window.h
+        window.h
 
 SOURCES += \
-    window.cpp
+        window.cpp
 
+unix{
+    TARGET      = ../target/window
+    MOC_DIR     = ../tmpfiles
+    RCC_DIR     = ../tmpfiles
+    UI_DIR      = ../tmpfiles
+    OBJECTS_DIR = ../tmpfiles
+}

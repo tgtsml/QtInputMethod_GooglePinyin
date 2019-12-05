@@ -18,12 +18,22 @@ RESOURCES   += \
 
 INCLUDEPATH += $$PWD/googlepinyin
 
-CONFIG      += debug_and_release build_all
+win32{
+    CONFIG      += debug_and_release build_all
 
-CONFIG(debug, debug|release){
-    TARGET  = ../../window/debug/platformInputContexts/$$join(TARGET,,,d)
-    LIBS    += -L$$PWD/googlepinyin/ -lgooglepinyind
-}CONFIG(release, debug|release){
-    TARGET  = ../../window/release/platformInputContexts/$$TARGET
-    LIBS    += -L$$PWD/googlepinyin/ -lgooglepinyin
+    CONFIG(debug, debug|release){
+        TARGET  = ../../window/debug/platformInputContexts/$$join(TARGET,,,d)
+        LIBS    += -L$$PWD/googlepinyin/ -lgooglepinyind
+    }CONFIG(release, debug|release){
+        TARGET  = ../../window/release/platformInputContexts/$$TARGET
+        LIBS    += -L$$PWD/googlepinyin/ -lgooglepinyin
+    }
+}
+unix{
+    TARGET      = ../target/$$TARGET
+    LIBS        += -L$$PWD/googlepinyin/ -lgooglepinyin
+    MOC_DIR     = ../tmpfiles
+    RCC_DIR     = ../tmpfiles
+    UI_DIR      = ../tmpfiles
+    OBJECTS_DIR = ../tmpfiles
 }
