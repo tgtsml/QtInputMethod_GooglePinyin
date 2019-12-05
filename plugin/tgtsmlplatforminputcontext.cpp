@@ -59,12 +59,33 @@ void TgtsmlPlatformInputContext::showInputPanel()
         connect(m_keyboard, &KeyboardForm::sendKeyToFocusItem, this, &TgtsmlPlatformInputContext::sendKeyToFocusItem);
     }
     if(m_keyboard->isHidden())m_keyboard->show();
-    m_keyboard->move(m_keyboard->x(), qApp->desktop()->height() - m_keyboard->height());
+    QWidget *widgetTmp = qobject_cast<QWidget*>(m_focusitem);
+    if(widgetTmp){
+        QPoint widgetGlobalPos = widgetTmp->mapToGlobal(QPoint(0, 0));
+        if(widgetGlobalPos.x() < 0){
+            widgetGlobalPos.setX(0);
+        }
+        if(widgetGlobalPos.y() < 0){
+            widgetGlobalPos.setY(0);
+        }
+        if(qApp->desktop()->width() - widgetGlobalPos.x() < m_keyboard->width()){
+            widgetGlobalPos.setX(qApp->desktop()->width() - m_keyboard->width());
+        }
+        if(qApp->desktop()->height() - widgetGlobalPos.y() - 30 < m_keyboard->height()){
+            widgetGlobalPos.setY(widgetGlobalPos.y() - m_keyboard->height() - 10);
+        }
+        m_keyboard->move(widgetGlobalPos + QPoint(0,30));
+    }
 }
 
 void TgtsmlPlatformInputContext::hideInputPanel()
 {
-    if(!m_keyboard->isHidden())m_keyboard->hide();
+    if(!m_keyboard){
+        return;
+    }
+    if(!m_keyboard->isHidden()){
+        m_keyboard->hide();
+    }
     m_keyboard->clearChineseCache();
 }
 
