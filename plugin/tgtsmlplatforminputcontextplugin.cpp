@@ -8,8 +8,5 @@ TgtsmlPlatformInputContext * TgtsmlPlatformInputContextPlugin::create(const QStr
     {
         return new TgtsmlPlatformInputContext;
     }
-    else
-    {
-        return nullptr;
-    }
+    return nullptr;
 }
