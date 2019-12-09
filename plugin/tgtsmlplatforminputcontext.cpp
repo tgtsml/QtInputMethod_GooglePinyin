@@ -74,7 +74,10 @@ void TgtsmlPlatformInputContext::showInputPanel()
         if(qApp->desktop()->height() - widgetGlobalPos.y() - 30 < m_keyboard->height()){
             widgetGlobalPos.setY(widgetGlobalPos.y() - m_keyboard->height() - 10);
         }
-        m_keyboard->move(widgetGlobalPos + QPoint(0,30));
+        else{
+             widgetGlobalPos = widgetGlobalPos + QPoint(0,30);
+        }
+        m_keyboard->move(widgetGlobalPos);
     }
 }
 

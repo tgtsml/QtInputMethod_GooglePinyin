@@ -1,7 +1,7 @@
 TEMPLATE        = subdirs
-SUBDIRS         = googlepinyin plugin window
+SUBDIRS         = googlepinyin plugin testWindow
 
 CONFIG          += ordered
 
-window.depends  = plugin
+testWindow.depends  = plugin
 plugin.depends  = googlepinyin

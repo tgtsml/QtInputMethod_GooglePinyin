@@ -22,10 +22,10 @@ win32{
     CONFIG      += debug_and_release build_all
 
     CONFIG(debug, debug|release){
-        TARGET  = ../../window/debug/platformInputContexts/$$join(TARGET,,,d)
+        TARGET  = ../../testWindow/debug/platformInputContexts/$$join(TARGET,,,d)
         LIBS    += -L$$PWD/googlepinyin/ -lgooglepinyind
     }CONFIG(release, debug|release){
-        TARGET  = ../../window/release/platformInputContexts/$$TARGET
+        TARGET  = ../../testWindow/release/platformInputContexts/$$TARGET
         LIBS    += -L$$PWD/googlepinyin/ -lgooglepinyin
     }
 }

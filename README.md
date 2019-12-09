@@ -15,7 +15,7 @@
 
 ### Windows_test
 ​		Windows上运行测试结果
-​		![](https://github.com/tgtsml/QtInputMethod_GooglePinyin/blob/master/Windows_test/test.png)
+​		![](https://github.com/tgtsml/QtInputMethod_GooglePinyin/blob/master/test_exe/test.png)
 
 ## 编译说明
 1. 先编译测试程序，再编译googlepinyin源码；
