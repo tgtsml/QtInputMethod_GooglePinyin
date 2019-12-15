@@ -11,7 +11,7 @@ Google拼音核心源码
 * window<br>
 对输入法的简单测试窗口
 
-* Windows_test
+* Windows_test<br>
 Windows上运行测试结果
 
 ## 编译说明
