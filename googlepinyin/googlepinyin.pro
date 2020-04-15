@@ -1,8 +1,6 @@
 QT          -= gui
 
-TARGET      = googlepinyin
 TEMPLATE    = lib
-CONFIG      += staticlib
 
 SOURCES     += \
             dictbuilder.cpp \
@@ -42,14 +40,20 @@ HEADERS     += \
             utf16char.h \
             utf16reader.h
 
+CONFIG      += staticlib
+TARGET      = googlepinyin
+
 win32{
     CONFIG      += debug_and_release build_all
+    
     CONFIG(debug, debug|release){
         TARGET  = ../../plugin/googlepinyin/$$join(TARGET,,,d)
-    }CONFIG(release, debug|release){
+    }
+    CONFIG(release, debug|release){
         TARGET  = ../../plugin/googlepinyin/$$TARGET
     }
 }
+
 unix{
     TARGET      = ../plugin/googlepinyin/$$TARGET
     MOC_DIR     = ../tmpfiles
