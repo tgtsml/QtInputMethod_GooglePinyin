@@ -1,5 +1,5 @@
 TEMPLATE        = subdirs
-SUBDIRS         = googlepinyin plugin testWindow
+SUBDIRS         = googlepinyin plugin
 
 CONFIG          += ordered
 
