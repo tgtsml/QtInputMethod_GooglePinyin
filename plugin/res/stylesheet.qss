@@ -1,0 +1,68 @@
+QWidget{
+    background-color:black;
+}
+
+QPushButton{
+    font:25px;
+    background-color:gray;
+    color:white;
+    border:2px solid black;
+    border-radius:10px;
+}
+
+QPushButton#function_button{
+    background-color:rgb(80,80,80);
+    color:rgb(200,200,200);
+    font:20px;
+}
+
+QPushButton:hover{
+    background-color:green;
+    color:white;
+}
+
+QPushButton:pressed,
+QPushButton#function_button::pressed{
+    background-color:red;
+    color:white;
+}
+
+QPushButton#function_button:checked{
+    background-color:rgb(200,100,50);
+    color:yellow;
+}
+
+QPushButton#hanzichangepage,
+QPushButton#hanzicandidates{
+    background-color:transparent;
+    color:white;
+}
+
+QPushButton#hanzichangepage:pressed{
+    color:red;
+}
+
+QPushButton#hanzichangepage:disabled{
+    color:gray;
+}
+
+QPushButton#emoji{
+    background-color:rgb(80,80,80);
+    color:yellow;
+}
+
+QPushButton#emoji:hover{
+    color:red;
+}
+
+QPushButton#emoji:pressed{
+    color:blue;
+}
+
+QLabel{
+    background-color:rgba(255,255,255,80);
+    border-radius:2px;
+    color:white;
+    font:15px;
+    margin-left: 5px;
+}
