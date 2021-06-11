@@ -47,15 +47,15 @@ win32{
     CONFIG      += debug_and_release build_all
     
     CONFIG(debug, debug|release){
-        TARGET  = ../../plugin/googlepinyin/$$join(TARGET,,,d)
+        TARGET  = $$PWD/../plugin/googlepinyin/$$join(TARGET,,,d)
     }
     CONFIG(release, debug|release){
-        TARGET  = ../../plugin/googlepinyin/$$TARGET
+        TARGET  = $$PWD/../plugin/googlepinyin/$$TARGET
     }
 }
 
 unix{
-    TARGET      = ../plugin/googlepinyin/$$TARGET
+    DESTDIR     = $$PWD/../plugin/googlepinyin
     MOC_DIR     = ../tmpfiles
     RCC_DIR     = ../tmpfiles
     UI_DIR      = ../tmpfiles

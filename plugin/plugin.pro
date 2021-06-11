@@ -30,7 +30,7 @@ win32{
     }
 }
 unix{
-    TARGET      = ../target/$$TARGET
+    TARGET      = $$PWD/../target/$$TARGET
     LIBS        += -L$$PWD/googlepinyin/ -lgooglepinyin
     MOC_DIR     = ../tmpfiles
     RCC_DIR     = ../tmpfiles
