@@ -33,3 +33,7 @@ unix{
     UI_DIR      = $$PWD/../build/demo/ui
     OBJECTS_DIR = $$PWD/../build/demo/obj
 }
+
+dict_files.files += $$PWD/../googlepinyin/dict/*
+dict_files.path = $$PWD/../build/bin/dict
+INSTALLS += dict_files
