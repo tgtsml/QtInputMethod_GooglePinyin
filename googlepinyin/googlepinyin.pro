@@ -55,9 +55,10 @@ win32{
 }
 
 unix{
-    DESTDIR     = $$PWD/../plugin/googlepinyin
-    MOC_DIR     = ../tmpfiles
-    RCC_DIR     = ../tmpfiles
-    UI_DIR      = ../tmpfiles
-    OBJECTS_DIR = ../tmpfiles
+    DESTDIR     = $$PWD/../build/lib/googlepinyin
+
+    MOC_DIR     = $$PWD/../build/googlepinyin/moc
+    RCC_DIR     = $$PWD/../build/googlepinyin/res
+    UI_DIR      = $$PWD/../build/googlepinyin/ui
+    OBJECTS_DIR = $$PWD/../build/googlepinyin/obj
 }

@@ -1,9 +1,9 @@
 TEMPLATE        = subdirs
 SUBDIRS         = googlepinyin \
                   plugin \
-                  TestDemo
+                  demo
 
 CONFIG          += ordered
 
 plugin.depends  = googlepinyin
-TestDemo.depends = plugin
+demo.depends = plugin

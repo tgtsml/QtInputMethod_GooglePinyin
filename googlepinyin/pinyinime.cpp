@@ -19,6 +19,7 @@
 #include "dicttrie.h"
 #include "matrixsearch.h"
 #include "spellingtrie.h"
+#include <QString>
 
 #ifdef __cplusplus
 extern "C" {

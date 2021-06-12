@@ -42,13 +42,13 @@ KeyboardForm::KeyboardForm(QWidget *parent)
                          Qt::WindowDoesNotAcceptFocus);
 
     //加载QSS样式表
-    QFile qss(":/styles/res/stylesheet.qss");
+    QFile qss(":/res/stylesheet.qss");
     if(false == qss.open(QFile::ReadOnly))return;
     this->setStyleSheet(qss.readAll());
     qss.close();
 
     //图标字体
-    int fontId = QFontDatabase::addApplicationFont(":/font/res/FontAwesome.otf");
+    int fontId = QFontDatabase::addApplicationFont(":/res/FontAwesome.otf");
     QString fontName = QFontDatabase::applicationFontFamilies(fontId).at(0);
     QFont btnicofont(fontName);
     btnicofont.setPixelSize(10);
@@ -463,6 +463,7 @@ void KeyboardForm::searchChineseCharacters(const int &currentpage)
     QString app_dir(qApp->applicationDirPath()+"/dict");
     im_open_decoder(QString("%1/dict_pinyin.dat").arg(app_dir).toLocal8Bit().data(),
                     QString("%1/dict_pinyin_user.dat").arg(app_dir).toLocal8Bit().data());
+
     im_set_max_lens(max_spelling_length, max_decoded_length);
     im_reset_search();
 

@@ -1,8 +1,7 @@
 <RCC>
-    <qresource prefix="/styles">
+    <qresource prefix="/">
+        <file>res/tgtsml.json</file>
         <file>res/stylesheet.qss</file>
-    </qresource>
-    <qresource prefix="/font">
         <file>res/FontAwesome.otf</file>
     </qresource>
 </RCC>

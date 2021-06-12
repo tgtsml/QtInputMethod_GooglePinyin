@@ -25,4 +25,11 @@ HEADERS += \
 FORMS += \
     mainwindow.ui
 
-DESTDIR = $$PWD/bin
+unix{
+    DESTDIR = $$PWD/../build/bin
+
+    MOC_DIR     = $$PWD/../build/demo/moc
+    RCC_DIR     = $$PWD/../build/demo/res
+    UI_DIR      = $$PWD/../build/demo/ui
+    OBJECTS_DIR = $$PWD/../build/demo/obj
+}

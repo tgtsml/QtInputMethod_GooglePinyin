@@ -13,10 +13,7 @@ SOURCES     += \
             tgtsmlplatforminputcontext.cpp \
             keyboardform.cpp
 
-RESOURCES   += \
-            res.qrc
-
-INCLUDEPATH += $$PWD/googlepinyin
+INCLUDEPATH += $$PWD/../googlepinyin
 
 win32{
     CONFIG      += debug_and_release build_all
@@ -30,10 +27,15 @@ win32{
     }
 }
 unix{
-    TARGET      = $$PWD/../target/$$TARGET
-    LIBS        += -L$$PWD/googlepinyin/ -lgooglepinyin
-    MOC_DIR     = ../tmpfiles
-    RCC_DIR     = ../tmpfiles
-    UI_DIR      = ../tmpfiles
-    OBJECTS_DIR = ../tmpfiles
+    LIBS        += -L$$PWD/../build/lib/googlepinyin -lgooglepinyin
+
+    DESTDIR     = $$PWD/../build/bin/platforminputcontexts
+
+    MOC_DIR     = $$PWD/../build/plugin/moc
+    RCC_DIR     = $$PWD/../build/plugin/res
+    UI_DIR      = $$PWD/../build/plugin/ui
+    OBJECTS_DIR = $$PWD/../build/plugin/obj
 }
+
+RESOURCES += \
+    res.qrc
