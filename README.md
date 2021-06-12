@@ -8,7 +8,7 @@ Google拼音核心源码<br>
 * plugin<br>
 输入法插件源码<br>
 
-* TestDemo<br>
+* demo<br>
 测试例子
 
 ## 编译说明
